@@ -4,17 +4,32 @@
 	<meta charset="UTF-8">
 	<title>腾讯首页</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="images/qq.ico" rel="shortcut icon">
+	<script type="text/javascript" src="js/move2.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	<div class="wrap clearflow">
 
 	     <!--头部-->
-		<div class="head clearflow">
+		<div class="head">
 			<a href="##" class="logo fl"></a><!--logo结束-->
 
-			<div class="search-bar clearflow fl">
-				<div class="search-text-container fl clearflow">
-					<div class="search-menu fl">网页&nbsp;&nu;</div>
+			<div class="search-bar fl">
+				<div class="search-text-container fl">
+					<div class="search-menu fl" onmouseover="showSearch()" onmouseout="hideSearch()"><div id="search-menu-inner" class="fl">网页</div>
+						<ul id="search-selected" class="search-selected">
+							<li>网页</li>
+							<li>图片</li>
+							<li>视频</li>
+							<li>音乐</li>
+							<li>地图</li>
+							<li>问问</li>
+							<li>百科</li>
+							<li>新闻</li>
+							<li>购物</li>
+						</ul>
+					</div>
 					<input type="text"></input>
 					<span class="icon fr"></span>
 				</div><!--search-text-container结束-->
@@ -26,7 +41,7 @@
 				<a href="##">登录</a>
 			</div><!--login结束-->
 
-			<div class="head-icon clearflow fr">
+			<div id="head-icon" class="head-icon clearflow fr">
 				<div class="booking">
 					<a href="##" class="fr"></a>
 				</div>
@@ -49,23 +64,7 @@
 		<!--导航-->
 		<div class="navbar">
 			<div id="navbar-inner" class="navbar-inner clearflow">
-
-				<script type="text/javascript">
-						var aTitle = [['新闻','图片','军事'],['视频','热剧','综艺'],['娱乐','明星','电影'],['汽车','车型','购物'],['科技','数码','手机'],['教育','课程','出国'],['公益','佛学'],['财经','证券','理财'],['体育','NBA&nbsp;','中超'],['时尚','健康','育儿'],['房产','家具','家电'],['游戏','儿童','星座'],['文化','大家','文学'],['拍客','更多']]
-
-					var oNavbarInner = document.getElementById('navbar-inner');
-
-					for (var i = 0; i < aTitle.length; i++) {
-
-						if (aTitle[i].length == 3) {
-							oNavbarInner.innerHTML += '<div><strong><a href="##">' + aTitle[i][0] + '</a></strong><a href="##">' + aTitle[i][1] + '</a><a href="##">' + aTitle[i][2] + '</a></div>';
-						}
-						else {
-							oNavbarInner.innerHTML += '<div><strong><a href="##">' + aTitle[i][0] + '</a></strong><a href="##">' + aTitle[i][1] + '</a></div>';
-						}
-					}
-				</script>
-
+				<!--js写导航-->
 			</div><!--navbar-inner结束-->
 		</div><!--navbar结束-->
 
@@ -79,8 +78,8 @@
 		<!--内容区-->
 			<!--新闻-->
 		<div class="layout">
-			<div class="layout-left">
-				<div class="layout-left news-container">
+			<div class="layout1-left">
+				<div class="layout1-left news-container">
 					<div class="title">
 						<a href="#">新闻</a><a href="#">上海新闻</a>
 						<span class="fr">8℃</span>
@@ -119,10 +118,10 @@
 					<p><a href="##" class="layout-icon-play">春运「囧」途12年</a></p>
 					<p><a href="##" class="layout-icon-play">浙江杭州72岁「瑜伽爷爷」免费开班收徒</a></p>
 				</div><!--news-container结束-->
-			</div><!--layout-left结束-->
+			</div><!--layout-left-first结束-->
 
 			<!--今日-->
-			<div class="layout-right today">
+			<div class="layout1-right today">
 				<div class="topic-container">
 					<div class="title">
 						<a href="#">今日话题</a>
@@ -180,7 +179,325 @@
 					<p><a href="##">在岸人民币汇率呈现升值走势</a></p>
 				</div><!--freshpaper-container结束-->
 			</div><!--today结束-->
+
+
+			<!--侧边栏-->
+			<!--标签-->
+			<div class="sidebar fr">
+				<div class="label fr" onmouseover="labelChangeColor()" onmouseout="getBack()">
+
+
+					<div class="label-more fl">
+						<div id="show-label" class="show-label">
+						</div>
+						<div id="label-expend" class="label-expend">
+						</div>
+					</div>
+
+					<div class="label-line">
+						<a href="##">QQ</a><a href="##">邮箱</a><a href="##">会员</a><a href="##">电脑管家</a><a href="##">软件</a>
+					</div>
+					<div class="label-line">
+						<a href="##">微信</a><a href="##">空间</a><a href="##">课堂</a><a href="##">好莱坞</a><a href="##">腾讯云</a>
+					</div>
+					<div class="label-line">
+						<a href="##">快报</a><a href="##">新闻APP</a><a href="##">自选股</a><a href="##">体育APP</a>
+					</div>
+					<div class="label-line">
+						<a href="##">视频</a><a href="##">手机管家</a><a href="##">浏览器</a><a href="##">应用宝</a>
+					</div>
+					<div class="label-line">
+						<a href="##">LOL</a><a href="##">CF</a><a href="##">DNF</a><a href="##">火影手游</a><a href="##">逆战</a>
+					</div>
+					<div class="label-line">
+						<a href="##">爱玩</a><a href="##">怪猎</a><a href="##">酷跑3D</a><a href="##">火影</a><a href="##">传奇</a>
+					</div>
+					<div class="label-line">
+						<a href="##">京东</a><a href="##">财付通</a><a href="##">企鹅FM</a><a href="##">Q币</a><a href="##">全部</a>
+					</div>
+
+				</div>
+			</div>
+
+
+			<!--广告轮播图-->
+			<div id="scrollpic" class="siderbar-scrollpic fr clearflow">
+				<div class="siderbar-sp-logo">
+					
+				</div>
+					<div class="pic" style="background-color: yellow"></div>
+					<div class="pic" style="background-color: red"></div>
+					<div class="pic" style="background-color: white"></div>
+					<div class="pic" style="background-color: blue"></div>
+					<div class="pic" style="background-color: green"></div>
+					<div class="pic" style="background-color: white"></div>
+					<div class="pic" style="background-color: red"></div>
+					<div class="pic" style="background-color: blue"></div>
+					<div class="pic"  style="background-color: green"></div>
+					<div class="pic" style="background-color: red"></div>
+					<div class="pic"  style="background-color: yellow"></div>
+			</div>
+
+			<!--股票-->
+			<div class="stock fr clearflow">
+				<div class="title clearflow">
+					<a href="#">市场行情</a>
+				</div>
+
+				<div  id="stockCrop" class="stock-crop clearflow">
+					<div id="stockSelecttop" class="stock-selecttop clearflow">
+						<ul>
+							<li>上证</li>
+							<li>恒指</li>
+							<li>道指</li>
+							<li>腾安</li>
+						</ul>
+					</div>
+
+					<div id="stockContent" class="stock-content clearflow">
+						<div class="stock-img fl">
+							<a href="##">
+								<img id="stock-img" src="images/上证.png" alt="#">
+							</a>
+						</div>
+						<div id="stock-data" class="stock-data fl">
+							<dl>
+								<dt><a href="##">上证指数</a></dt>
+								<dd>2737.60</dd>
+								<dd>+81.99 +3.09%</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<p><a href="##">[登录自选股] 查看我的股票走势</a></p>
+			</div>
+
+			<!--星座-->
+			<div class="star-container clearflow fr">
+				<div class="title clearflow">
+					<a href="#">星座运势</a>
+				</div>
+
+				<div class="luck clearflow">
+					<div id="luck-left" class="luck-left fl"></div>
+
+					<div class="luck-right fr">
+						<select name="star" id="star" onchange="star(this)">
+							<option value="0">白羊座(03.21-04.19)</option>
+							<option value="1">金牛座(04.20-05.20)</option>
+							<option value="2">双子座(05.21-06.21)</option>
+							<option value="3">巨蟹座(06.22-07.22)</option>
+							<option value="4">狮子座(07.23-08.22)</option>
+							<option value="5">处女座(08.23-09.22)</option>
+							<option value="6">天秤座(09.23-10.23)</option>
+							<option value="7">天蝎座(10.24-11.22)</option>
+							<option value="8">射手座(11.23-12.21)</option>
+							<option value="9">摩羯座(12.22-01.19)</option>
+							<option value="10" selected="selected">水瓶座(01.20-02.18)</option>
+							<option value="11">双鱼座(02.19-03.20)</option>
+						</select>
+						<div class="luck-today">
+							<p>今日运势:</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="luck-content clearflow">
+					<p>今天你的工作态度严谨认真，也懂得收放自如，就是精神不免处于一种紧张的状态，特别是对财务的敏...
+						<a href="##">[详细]</a>
+					</p>
+				</div>
+			</div><!--star-container结束-->
 		</div><!--layout结束-->
+
+
+		<!--广告条-->
+		<div class="layout adsbar">
+			<a class="adsbar-left fl"></a>
+			<a class="adsbar2-right fr"></a>
+		</div>
+
+		<!--经济/汽车-->
+		<div class="layout">
+			<div class="finance fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">财经</a><span>/</span><a href="#">证券</a><span>/</span><a href="#">理财</a>
+				</div>
+
+				<div class="layout-left">
+					<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/finance1.jpg" alt="#" class="fl" />绘客：网剧井喷 太子妃们身后是资本新风口？</a></p>
+					<p><a href="##">今年消费税征税范围将扩大 高档消费品或被纳入</a></p>
+					<p><a href="##">全国46个城市限购九成已取消 一线城市仍在坚守</a></p>
+					<p><a href="##">东北流入非法转基因种子成公开秘密 多地严打</a></p>
+					<p><a href="##">美国中产阶级心情大好富有阶级却愈发不爽</a></p>
+					<p><a href="##">民调称2/3白领年终奖泡汤 企业发猪肉和励志书</a></p>
+					<p><a href="##">中国首个千吨级铀矿大基地将建成</a></p>
+				</div>
+				<div class="layout-right">
+					<p><a href="##">A股暴跌砸出黄金坑 海外资金入市步伐稳健</a></p>
+					<p><a href="##">证监会：业绩波动不构成IPO障碍	两融风险可控</a></p>
+					<p><a href="##">去年证券交易印花税增2.8倍 股民人均贡献2553元</a></p>
+					<p><a href="##">沪指本月跌幅居史上第六 超90%股票下跌</a></p>
+					<p><a href="##">银行票据业务急刹背后 票据贴现流入股市或非个案</a></p>
+					<p><a href="##">1月券商客户交易结算资金净转入近2000亿</a></p>
+					<p><a href="##">深港交易所高层再提深港通 宣布时点或临近</a></p>
+					<p><a href="##">大佬布局2016：灾后重建买什么？</a></p>
+					<p><a href="##">有种最惨的年终奖叫「节后发」</a></p>
+				</div>
+			</div>
+
+			<div class="car fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">汽车</a><span>/</span><a href="#">在线汽车</a>
+				</div>
+
+				<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/car1.jpg" alt="#" class="fl" />潜力股车型推荐 盘点那些叫好不叫座车型</a></p>
+				<p><a href="##">奥迪新款A1购车手册 推荐高配运动版</a></p>
+				<p><a href="##">马自达CX-4国内实车图曝光 有望年中上市 </a></p>
+				<p><a href="##">全新帕萨特对比九代雅阁</a></p>
+				<p><a href="##">福特或推嘉年华ST增强版</a></p>
+				<p><a href="##">2015年度热销小型SUV 自主车型全面领跑</a></p>
+				<p><a href="##">宝马X5 16款直降14.6万</a></p>
+			</div>
+		</div>
+
+		<!--体育/房产-->
+		<div class="layout">
+			<div class="sports fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">体育</a><span>/</span><a href="#">中超</a><span>/</span><a href="#">英超</a>
+				</div>
+
+				<div class="layout-left">
+					<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/sports.jpg" alt="#" class="fl" />NBA-魔兽遭逐火箭负雷霆 哈登33+7+7韦少三双</a></p>
+					<p><a href="##" class="layout-icon-play">正视频播湖人vs快船 詹皇破26000分骑士3连胜</a></p>
+					<p><a href="##" class="layout-icon-play">CBA-易建联28+6广东大胜浙江 四川送北京3连败</a></p>
+					<p><a href="##" class="layout-icon-play">足总杯-鲁尼破门曼联3-1	切尔西宣布帕托加盟</a></p>
+					<p><a href="##" class="layout-icon-play">徐亮：别老说罗宁吹NB 国安薪资与恒大同级别</a></p>
+					<p><a href="##" class="layout-icon-play">18:30视频播邹市明冲金腰带	恩师指邹市明软肋</a></p>
+					<p><a href="##" class="layout-icon-play">专家担忧孙杨伤情 称恐在三方面影响奥运备战</a></p>
+				</div>
+				<div class="layout-right">
+					<p><a href="##"> 我师主场社区 | 詹姆斯重返骑士注定失败？</a></p>
+					<p><a href="##">正视频直播拳力联盟小组赛收官战</a></p>
+					<p><a href="##" class="layout-icon-play">四川主帅：下半场球队有松懈 赢北京信心大增</a></p>
+					<p><a href="##" class="layout-icon-play">曝马竞放弃3500万神锋 与阿森纳抢比利时妖星</a></p>
+					<p><a href="##" class="layout-icon-play">皇马马竞转会禁令暂缓执行 仍需FIFA最终裁定</a></p>
+					<p><a href="##" class="layout-icon-play">日媒怕埃尔克森归化中国队：日本后卫没法防</a></p>
+					<p><a href="##" class="layout-icon-play">德媒曝申花追波多尔斯基 合同总额达2700万欧</a></p>
+					<p><a href="##" class="layout-icon-play">上港外援晒《西游记》剧照 吉安也迷悟空八戒</a></p>
+					<p><a href="##" class="layout-icon-play">游泳队副总教练：孙杨受伤不会影响出战奥运</a></p>
+				</div>
+			</div>
+
+			<div class="building fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">上海房产</a><span>/</span><a href="#">腾讯看房</a>
+				</div>
+
+				<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/building.jpg" alt="#" class="fl" />杨雄：上海将坚持限购政策 希望多增加中小户型供应</a></p>
+				<p><a href="##">发烫的土地市场：一天内全国3幅地块以翻倍价格成</a></p>
+				<p><a href="##">上海一小区拆除群租违建后帮居民重建小别墅 </a></p>
+				<p><a href="##">万科或继续停牌至6月18日 王石：我还有点野心</a></p>
+				<p><a href="##">买房攻略：什么样的房还贷压力小、增值空间大？</a></p>
+				<p><a href="##">全球八大迷你度假居所 一平米微宅为榜单最小</a></p>
+				<p><a href="##">9号线漕河泾开发区站 1月30日起封站改造</a></p>
+			</div>
+		</div>
+
+		<!--NBA-->
+		<div class="layout">
+			<div class="NBA clearflow">
+				<div class="title1 clearflow">
+					<a href="#">NBA</a><span>/</span><a href="#">视频</a><span>/</span><a href="#">赛程</a><span>/</span><a href="#">数据</a>
+				</div>
+
+				<div class="layout-left">
+					<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/NBA.jpg" alt="#" class="fl" />火箭召回27+13+7+7新秀 哈雷尔:我已做好准备</a></p>
+					<p><a href="##" class="layout-icon-play">姚明将参加多伦多全明星 客串全球训练营教练</a></p>
+					<p><a href="##" class="layout-icon-play">曝快船或将交易格里芬 拆散三巨头必定先卖他</a></p>
+				</div>
+
+				<div class="layout-right">
+					<p><a href="##" class="layout-icon-play">詹皇不爽欧文乐福落选：我们屁股被踹了一脚</a></p>
+					<p><a href="##" class="layout-icon-play">科比真怒了！打飞希伯特 曼巴难忍队友不努力</a></p>
+					<p><a href="##" class="layout-icon-play">榜眼认怂！自称不配首发：不知如何打得更好</a></p>
+					<p><a href="##" class="layout-icon-play">莫蒂主动要求去发展联盟：很兴奋 是我需要的</a></p>
+					<p><a href="##" class="layout-icon-play">詹皇一败笔恐再难夺冠 我师主场：雷霆痛失基石	</a></p>
+				</div>
+				<div class="NBA-right fr clearflow">
+					<p><a href="##" class="layout-icon-play">库里十大背运表演 晃趴保罗戏耍全船飙逆天三</a></p>
+					<p><a href="##" class="layout-icon-play">唯美沙画演绎科比20年生涯 回忆你我共同的青</a></p>
+					<p><a href="##" class="layout-icon-play">火锅总是来的措手不及 22秒看尽詹姆斯盖帽瞬</a></p>
+					<p><a href="##" class="layout-icon-play">无雕像不巨星!乔丹霸气冠绝古今 科比全裸斗蛇</a></p>
+					<p><a href="##" class="layout-icon-play">韩篮球宝贝跪地豪放热舞 陶醉摸下体无惧露底</a></p>
+				</div>
+			</div>
+		</div>
+
+
+		<!--广告条-->
+		<div class="layout adsbar3">
+			<a class="adsbar-left fl"></a>
+			<a class="adsbar3-right fr"></a>
+		</div>
+
+		<!--科技/文化-->
+		<div class="layout">
+			<div class="tech fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">科技</a><span>/</span><a href="#">数码</a><span>/</span><a href="#">独家外媒</a><span>/</span><a href="#">科普</a>
+				</div>
+
+				<div class="layout-left">
+					<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/tech.jpg" alt="#" class="fl" />柳传志称联想遭遇第四道坎 杨元庆面临考验</a></p>
+					<p><a href="##"> 我师主场社区 | 詹姆斯重返骑士注定失败？</a></p>
+					<p><a href="##">报告称苹果应用商店逾千款应用存在漏洞</a></p>
+					<p><a href="##">黎万强回归后首次亮相 称小米5期待度特别高 </a></p>
+					<p><a href="##">联想乐檬3评测：红米3的有力竞争者</a></p>
+					<p><a href="##">盘点SSD界的四大掉盘王 请慎重购买！</a></p>
+					<p><a href="##" class="layout-icon-play">卖手机最多的三星 上季度净利润竟下滑40%</a></p>
+				</div>
+				<div class="layout-right">
+					<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/phone.jpg" alt="#" class="fl" />格力手机1出货量五六万</a></p>
+					<p><a href="##">新能源汽车政府补贴不应是补贴企业利润</a></p>
+					<p><a href="##">苹果收购增强现实公司 强化VR/AR团队</a></p>
+					<p><a href="##">英国准许无人驾驶汽车在伦敦街头上路测试</a></p>
+					<p><a href="##">iPhone 7耳机再升级 供应商爆将配降噪耳机</a></p>
+					<p><a href="##">微软WP生生玩死自己 全年只卖1000万台</a></p>
+					<p><a href="##">特斯拉变卦 将支持投射手机APP到车载屏幕上</a></p>
+				</div>
+			</div>
+
+			<div class="culture fl clearflow">
+				<div class="title1 clearflow">
+					<a href="#">文化</a>
+				</div>
+
+				<p class="clearflow"><a href="##"  class="layout-innerimg"><img src="images/culture.jpg" alt="#" class="fl" />蒲公英的纯真世界</a></p>
+				<p><a href="##">传统家庭观念在瓦解？</a></p>
+				<p><a href="##">读透《西游记》，方能笑对人生 </a></p>
+				<p><a href="##">八年了，经济为什么还不回暖？</a></p>
+				<p><a href="##">从星巴克的色素到芈月的口红</a></p>
+				<p><a href="##">揭秘：张学良与于凤至离婚真相</a></p>
+				<p><a href="##">似乎乡愁和千里外的河山，就在那一碗面里</a></p>
+			</div>
+		</div>
+
+		<!--广告条-->
+		<div class="layout adsbar4">
+		</div>
+
+		<!--尾部-->
+		<div class="footer clearflow">
+			<span>Copyright © 1998 - 2016 Inking. All Rights Reserved</span>
+			<span><a href="http://weibo.com/1869347021/profile?topnav=1&wvr=6&is_all=1" target="_blank">_Inking-</a></span>
+			<span>Just Kidding</span>
+		</div>
+
+		<!--回到顶部-->
+		<a id="backtop" href="##" class="backtop" onmouseover="turnsBlue(this)" onmouseout="turnsTransparent(this)" onclick="toTop()"></a>
 	</div><!--wrap结束-->
 </body>
 </html>
