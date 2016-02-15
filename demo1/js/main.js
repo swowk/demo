@@ -165,22 +165,3 @@
 			return aResult;
 		}
 
-
-		var iCur = 0;
-		var timer = setInterval(function() {
-						var oScr = document.getElementById('scrollpic');
-						var aPic = getByClass(oScr, 'pic');
-
-						aPic[iCur++].style.display = 'block';
-						aPic[iCur++].style. = 'le'
-						aPic[iCur++].style.display = aPic[iCur++].style.display = 'block';
-
-						if (iCur > (aPic.length - 1) ) {
-							iCur = 0;
-						}
-						else {
-							iCur -= 2;
-						}
-						alert(iCur);
-
-		},2000)
