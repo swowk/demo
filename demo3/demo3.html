@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding:0;}
+	#container{margin:0 auto;position:relative;width:800px;height:400px;overflow:hidden;border-radius:10px;border: 1px solid yellow;}
+	#container ul{position:relative;z-index:1000;list-style:none;margin-left:20px;}
+	#container li{width:30px;height:30px;z-index:1000;border:1px solid #fff;text-align:center;line-height:30px;margin-bottom:10px;cursor:pointer;opacity:0.5;border-radius:5px;color:#fff;}
+	#container .active{opacity:1;background-color:#f3f9f1;}
+	.img{position:absolute;}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="img"><img src="images/1.jpg" alt="" width="800" height="400"></div>
+		<div class="img"><img src="images/2.jpg" alt="" width="800" height="400"></div>
+		<div class="img"><img src="images/3.jpg" alt="" width="800" height="400"></div>
+		<div class="img"><img src="images/4.jpeg" alt="" width="800" height="400"></div>
+
+	</div>
+	<script>
+		(function(){
+			function SlideImg() {};
+
+			SlideImg.prototype = {
+				bigbox : null,
+				aImg : null,
+				ul : null,
+				play : null,//控制自动播放
+				count : 0,
+
+				init : function(id){
+					var _ = this;
+					_.bigbox = document.getElementById(id);
+					_.ul = document.createElement('ul');
+					_.aImg = _.bigbox.getElementsByTagName('img');
+					//创建Icon
+					for (var i = 0; i < _.count; i++) {
+						var li = document.createElement('li');
+						li.innerHTML = i + 1;
+						_.ul.appendChild(li);
+					}
+					_.bigbox.appendChild(_.ul);
+
+					_.showImg();
+					_.events();
+				},
+				//自动播放
+				action : function() {
+					var _ = this;
+					
+					_.play = setInterval(function() {
+						_.activeIcon();
+						if (_.index == 3) {_.index = -1};
+						_.aImg[++_.index].style.opacity = 1;
+						if (_.index == 0) {_.aImg[_.count-1].style.opacity = 0;}
+						else{_.aImg[_.index - 1].style.opacity = 0;}
+						_.index = _.index > _.count-2 ? -1:_.index;
+					}, 2000)
+				},
+				//隐藏所有图片，显示第一张
+				showImg : function() {
+					var _ = this;
+					for (var i = 0; i < _.aImg.length; i++) {
+						_.aImg[i].style.transition = "opacity 1s";
+						_.aImg[i].style.opacity = 0;
+					}
+					_.aImg[_.index].style.opacity = 1;
+					_.ul.childNodes[_.index].className = 'active';
+				},
+
+				activeIcon : function() {
+					var _ = this;
+					for (var i = 0; i < _.ul.childNodes.length; i++) {
+						_.ul.childNodes[i].className = '';
+					}
+					if (_.index < 3) {_.ul.childNodes[_.index + 1].className = 'active';}
+				},
+
+				events : function() {
+					var _ = this;
+					//点击切换
+					for (var i = 0; i < _.ul.childNodes.length; i++) {
+							(function(index){
+								_.ul.childNodes[i].addEventListener('click', function() {
+									clearInterval(_.play);
+									_.index = index;
+									for (var i = 0; i < _.ul.childNodes.length; i++) {
+										_.ul.childNodes[i].className = '';
+									}
+									_.showImg();
+								}, false)
+							})(i);
+					};
+					_.bigbox.onmouseover = function(){
+						clearInterval(_.play);
+					};
+
+					_.bigbox.onmouseout = function(){
+						_.action();
+					};
+				}
+			}
+
+			var slideImg = new SlideImg();
+			slideImg.count = 4;
+			slideImg.init("container");
+			slideImg.action();
+		})();
+	</script>
+</body>
+</html>
