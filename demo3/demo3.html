@@ -25,12 +25,13 @@
 			function SlideImg() {};
 
 			SlideImg.prototype = {
-				bigbox : null,
-				aImg : null,
-				ul : null,
+				bigbox : null,//轮播图容器
+				aImg : null,//图片
+				ul : null,//图片容器
 				play : null,//控制自动播放
-				count : 0,
-
+				count : 0,//图片数量
+				index : 0,//图片索引
+				//初始化
 				init : function(id){
 					var _ = this;
 					_.bigbox = document.getElementById(id);
