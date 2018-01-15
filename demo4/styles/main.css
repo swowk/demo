@@ -1,0 +1,217 @@
+/*
+ * @Author: Wenbin.Zhang 
+ * @Date: 2018-01-01 18:22:13 
+ * @Last Modified by: Wenbin.Zhang
+ * @Last Modified time: 2018-01-14 16:26:28
+ */
+*{
+     padding: 0;
+     margin: 0;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix')format('embedded-opentype'),
+    url('../fonts/iconfont.woff')format('woff'),
+    url('../fonts/iconfont.ttf')format('truetype'),
+    url('../fonts/iconfont.svg#iconfont')format('svg');
+}
+ header {
+     display: flex;
+     display: -webkit-flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: 30px;
+     padding: 13px 0;
+     text-align: center;
+     border-bottom: 1px solid #9b9b9b;
+
+ }
+ .logo {
+     display: flex;
+     text-decoration: none;
+     color: #353c41;
+     align-items: center;
+ }
+ .logo-icon {
+     float: left;
+     width: 30px;
+     height: 30px;
+     background-image: url(../images/icon-round.svg);
+ }
+
+ .logo-title {
+     float: left;
+     margin-left: 15px;
+     font-size: 20px;
+     font-weight: 500;
+     line-height: 20px;
+ }
+
+ .banner {
+     width: 100%;
+     height: 79.35vw;
+     text-align: center;
+     font-size: 0;
+     background-image: url(../images/bg.jpg);
+     background-size: contain;
+     background-repeat: repeat-x;
+ }
+
+ .box {
+     display: inline-block;
+     width: 70vw;
+     height: 79.35vw;
+     background-color: #fff;
+     border-top-left-radius: 11%;
+     border-top-right-radius: 11%;
+     box-shadow: 0 0 13px 0 rgba(0, 0, 0, .09);
+     vertical-align: bottom;
+     overflow: hidden;
+ }
+
+ .banner::after {
+     display: inline-block;
+     width: 0;
+     height: 100%;
+     content: "center";
+     vertical-align: middle;
+     overflow: hidden;
+ }
+
+ .point-top {
+     padding-top: 8.7%; 
+     font-size: 0;
+ }
+
+ .dot {
+     display: inline-block;
+     width: 9px;
+     height: 9px;
+     background-color: #000;
+     border-radius: 50%;
+     text-align: center;
+ }
+
+ .video-wrap {
+     height: 79.54%;
+     position: relative;
+     margin: 0 4.525%;
+     margin-top: 10.5%;
+     border: 1px solid #000;
+     border-top-left-radius: 2px;
+     border-top-right-radius: 2px;
+     background-color: #eee;
+ }
+
+ video {
+     width: 100%;
+     height: 100%;
+ }
+
+ .video-poster {
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 2;
+     width: 100%;
+     height: 100%;
+     background-image: url(../images/video-poster.jpg);
+     background-size: cover;
+     transition: opacity 518ms;
+ }
+
+ .video-controls {
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 3;
+     width: 100%;
+     height: 100%;
+     transition: opacity 518ms;
+ }
+
+ .video-control-handler {
+     z-index: 4;
+     position: absolute;
+     transform: translate3d(-50%, -50%, 0);
+     border-radius: 50%;
+     color: #fff;
+     transition-property: width, height, left, top;
+     transition-duration: 268ms;
+ }
+
+ .preplay {
+     top: 50%;
+     left: 50%;
+     width: 60px;
+     height: 60px;
+ }
+
+ .played {
+     top: 25px;
+     left: 92%;
+     width: 30px;
+     height: 30px;
+ }
+
+ .icon-play, .icon-remove{
+     position: absolute;
+     display: block;
+     width: 100%;
+     height: 100%;
+     font-family: 'iconfont'!important;
+     font-style: normal;
+     font-size: 0;
+     font-weight: 400;
+     -webkit-font-smoothing: antialiased;
+     -webkit-text-stroke-width: 0.2px;
+     -moz-osx-font-smoothing: grayscale;
+ }
+
+ .iconfont {
+     z-index: 5;
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     font-style: normal;
+     cursor: pointer;
+     transition: opacity 518ms;
+ }
+
+ .preplay .icon-remove .iconfont {
+     display: none;
+     opacity: 0;
+     font-size: 60px;
+     line-height: 60px;
+ }
+
+ .preplay .icon-play .iconfont {
+    cursor: pointer;
+    display: block;
+    opacity: 1;
+    font-size: 60px;
+    line-height: 60px;
+}
+
+ .played .icon-play .iconfont {
+     display: none;
+     opacity: 0;
+     font-size: 30px;
+     line-height: 30px;
+ }
+
+ .played .icon-remove .iconfont {
+    display: block;
+     opacity: 1;
+     font-size: 30px;
+     line-height: 30px;
+}
+
+.playing {
+    opacity: 0;
+    visibility: hidden;
+}

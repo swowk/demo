@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo1-jike</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/icon.jpg">
+</head>
+<body>
+    <header>
+        <a class="logo" href="#">
+            <div class="logo-icon"></div>
+            <div class="logo-title">即刻</div>
+        </a>
+    </header>
+    <div class="banner">
+        <div class="box">
+            <div class="point-top">
+                <div class="dot"></div>
+            </div>
+            <div class="video-wrap">
+                 <video class="video-stream" src="videos/msite-video.mp4"></video>
+                 <div class="video-poster"></div>
+                 <div class="video-controls">
+                     <div class="video-control-handler preplay">
+                         <span class="icon-play"><i class="iconfont">&#xe640;</i></span>
+                         <span class="icon-remove"><i class="iconfont">&#xe637;</i></span>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>
+
+<script>
+    //获取 dom 节点
+    var x = document.getElementsByClassName("video-stream")[0];
+    var btn = document.getElementsByClassName("iconfont")[0];
+    var close = document.getElementsByClassName("iconfont")[1];
+    var poster = document.getElementsByClassName("video-poster")[0];
+    var videoControlHandler = document.getElementsByClassName("video-control-handler")[0];
+
+    //点击播放事件
+    btn.addEventListener("click", function(){
+        poster.classList.add("playing");
+        videoControlHandler.classList.remove("preplay");
+        videoControlHandler.classList.add("played");
+        x.play();
+    });
+
+    //播放结束时回到初始状态
+    x.addEventListener("ended", function(){
+        poster.classList.remove("playing");
+        videoControlHandler.classList.remove("played");
+        videoControlHandler.classList.add("preplay");
+    })
+
+    //点击右上按钮停止播放
+    close.addEventListener("click", function(){
+        poster.classList.remove("playing");
+        videoControlHandler.classList.remove("played");
+        videoControlHandler.classList.add("preplay");
+        x.load();
+    })
+</script>
