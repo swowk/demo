@@ -1,0 +1,473 @@
+
+
+
+@import('reset.styl')
+global-reset()
+
+@import('vendor.styl')
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.eot');
+    src: url('../fonts/iconfont.eot?#iefix')format('embedded-opentype'),
+    url('../fonts/iconfont.woff')format('woff'),
+    url('../fonts/iconfont.ttf')format('truetype'),
+    url('../fonts/iconfont.svg#iconfont')format('svg');
+}
+
+@keyframes shakeArrow {
+    0%,to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    10%,30%,50%,70%,90% {
+        -webkit-transform: translate3d(0,-5px,0);
+        transform: translate3d(0,-5px,0)
+    }
+
+    20%,40%,60%,80% {
+        -webkit-transform: translate3d(0,5px,0);
+        transform: translate3d(0,5px,0)
+    }
+}
+
+@keyframes showTopic {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+number-of-sections = 5
+
+html, body
+    width 100%
+    //height number-of-sections * 100%
+    height 100%
+    font-size 16px
+    a, a:hover
+        text-decoration none
+        color inherit
+
+body
+    overflow hidden
+.wrapper
+    width 100%
+    height 500%
+    .fit-height
+        height (100 / number-of-sections)%
+        overflow-y hidden
+.wrapper
+    position relative
+    transform matrix(1, 0, 0, 1, 0, 0)
+    touch-action none
+    transition transform 700ms ease
+
+.first-section
+    position relative
+    background-image url(../images/bg-st1.jpg)
+    background-size cover
+    .nav
+        display flex
+        width 90%
+        margin 0 auto
+        padding-top 27px
+        justify-content space-between
+        align-items center
+        font-size 0
+        .logo
+            width 73px
+            height 36px
+            background url(../images/logo.png) no-repeat
+            background-size 100%
+        a
+            font-size 18px
+            margin-left 56px
+    .app-description
+        display flex
+        align-items center
+        justify-content center
+        width 100%
+        height calc(100% - 63px)
+        padding 0 8% 0 14%
+        .slogan
+            height 50%
+            background url(../images/slogan.png) no-repeat
+            background-size 100% auto
+        .video
+            width calc(70vw + 44px)
+            height calc(16 / 9 * 70vw + 128px)
+            min-width 225px
+            max-width 347px
+            min-height 255px
+            max-height 664px
+            background-color #fff
+            border-radius 45px
+            padding 64px 22px
+            .video-wrap
+                position relative
+                width 100%
+                height 100%
+            .video-stream
+                position absolute
+                top 0
+                left 0
+                width 100%
+                height 100%
+                border-radius 6px
+                border 1px solid #dbdbdb
+            .video-poster
+                z-index 9
+                position absolute
+                top 0
+                left 0
+                width 100%
+                height 100%
+                background url(../images/video-bg.png) no-repeat
+                background-size 100% 100%
+                transition opacity 512ms
+            .video-controls
+                z-index 99
+                position absolute
+                top 0
+                left 0
+                width 100%
+                height 100%
+                transition opacity 512ms
+                .video-control-handler
+                    position absolute
+                    top 226px
+                    left 108px
+                    width 85px
+                    height 85px
+                    border-radius 50%
+                    color #00BFFF
+                    cursor pointer
+                    overflow hidden
+                    transition all 512ms
+                    :hover
+                        color #009ACD
+                    .icon-play
+                        width 100%
+                        height 100%
+                        background url(../images/video-play.png) no-repeat
+                        background-size 100% 100%
+                    .icon-remove
+                        .iconfont
+                            font-family: 'iconfont'!important
+                            font-size: 60px
+                            font-weight: 400
+                            -webkit-font-smoothing: antialiased
+                            -webkit-text-stroke-width: 0.2px
+                            -moz-osx-font-smoothing: grayscale
+                .played 
+                    top: 25px
+                    left: 75%
+    .qrcode
+        position absolute
+        bottom 60px
+        left 60px
+        width 60px
+        height 60px
+        background url(../images/qr-code.png) no-repeat
+        background-size cover
+    .qrcode:hover
+        background url(../images/qr-code-hover.png) no-repeat
+        background-size cover
+        .content
+            position absolute
+            top -343px
+            left 0
+            width 240px
+            height 333px
+            border 3px solid #000
+            border-radius 10px
+            background url(../images/weixin.jpg) no-repeat
+            background-size contain
+    .first-tip
+        position absolute
+        left 50%
+        bottom 25px
+        width 50px
+        height 25px
+        background url(../images/arrow-up.png) no-repeat
+        background-size 100%
+        animation shakeArrow 3s infinite
+
+@media only screen and (max-width: 75rem) and (min-width: 62rem)
+    .download
+        display: none
+
+@media only screen and (max-width: 48rem)
+    .joinus
+        display: none
+    .first-section 
+        .app-description .slogan
+            display none
+        .qrcode
+            display none
+        .first-tip
+            display none
+    .first-section .app-description .video .video-controls 
+        .video-control-handler
+            top 50%
+            left 50%
+            width 60px
+            height 60px
+            transform translate(-50%, -50%)
+        .played
+            top 40px
+            left 85%
+@media only screen and (max-width: 992px)
+    .first-section .nav
+        padding-top 15px
+        a
+            font-size 14px
+        .logo
+            width 48px
+            height 24px
+    .first-section .app-description
+        height calc(100% - 24px)
+        padding 0
+
+@media only screen and (min-width: 62rem)
+    .first-section .app-description
+        justify-content space-between
+        .slogan
+            flex-basis 50%
+
+@media (max-height: 780px)
+    .first-section .app-description .video
+        margin-top 15px
+        align-self flex-start
+
+.playing
+    opacity 0
+    visibility hidden
+ 
+.preplay .icon-remove .iconfont
+    display none
+    opacity 0
+    font-size 60px
+    line-height 60px
+
+.preplay .icon-play
+    display block
+    opacity 1
+
+.played .icon-play 
+    display none
+    opacity 0
+ 
+
+.played .icon-remove .iconfont 
+    display block
+    opacity 1
+    font-size 60px
+    line-height 60px
+
+
+
+.second-section
+    display flex
+    position relative
+    align-items center
+    justify-content center
+    flex-direction row-reverse
+    background url(../images/second-bg.png) no-repeat
+    background-size auto 100%
+    .section-desc
+        line-height 1.5
+        text-align left
+        .section-title
+            font-family Yuanti SC
+            font-size 40px
+            font-weight 600
+            color #404040
+            margin-bottom 14px
+        .section-subtitle
+            font-size 22px
+            color grey
+    .mobile-view
+        width 310px
+        height 630px
+        position relative
+        margin-right 50px
+        .mobile-topic-child-A
+            z-index 9
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            background url(../images/topic-A.png) no-repeat
+            background-size 100% auto
+            animation showTopic 6s infinite
+        .mobile-topic-child-B
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            background url(../images/topic-B.png) no-repeat
+            background-size 100% auto
+            animation showTopic 6s infinite
+            animation-delay 3s
+
+@media only screen and (max-width: 992px)
+    .second-section 
+        flex-wrap wrap
+        .mobile-view
+            width 70vw
+            height 142vw
+            margin 0
+            margin-top 20px
+        .section-desc
+            width 100%
+            margin-top 5%
+            padding 25px 20px 0
+            text-align center
+            .section-title
+                font-size 22px
+            .section-subtitle
+                font-size 14px
+
+.third-section
+    display flex
+    position relative
+    align-items center
+    justify-content center
+    background-color #ffe411
+    .section-desc
+        line-height 1.5
+        text-align left
+        .section-title
+            font-family Yuanti SC
+            font-size 40px
+            font-weight 600
+            color #404040
+            margin-bottom 14px
+        .section-subtitle
+            font-size 22px
+            color grey
+    .mobile-notification
+        width 56vh
+        height 75vh
+        min-width 390px
+        min-height 600px
+        background url(../images/mobile-notification.png) no-repeat
+        background-size 100%
+        background-position 50%
+        border-right 22px solid #fff
+        border-left 22px solid #fff
+    .third-mobile
+        display none
+        width 100%
+        height 70vh
+        background url(../images/third-mobile.png) no-repeat
+        background-size 100% auto
+    .third-section-mask
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background url(../images/third-mask.png) no-repeat
+        background-size auto 100%
+
+@media only screen and (max-width: 992px)
+    .third-section 
+        flex-wrap wrap
+        background-color #fff
+        .section-desc
+            width 100%
+            margin-top 5%
+            padding 25px 20px 0
+            text-align center
+            .section-title
+                font-size 22px
+            .section-subtitle
+                font-size 14px
+        .mobile-notification
+            display none
+        .third-mobile
+            display block
+        .third-section-mask
+            display none
+
+@media (max-width: 1155px)
+    .third-section .mobile-notification
+        margin-left 50px
+
+.forth-section
+    display flex
+    position relative
+    align-items center
+    justify-content center
+    flex-direction row-reverse
+    background url(../images/forth-bg.png) no-repeat
+    background-size 90%
+    background-position 50%
+    .forth-mobile
+        width 310px
+        height 623px
+        background url(../images/topic-post.png) no-repeat
+        background-size auto 100%
+    .section-desc
+        line-height 1.5
+        text-align left
+        .section-title
+            font-family Yuanti SC
+            font-size 40px
+            font-weight 600
+            color #404040
+            margin-bottom 14px
+        .section-subtitle
+            font-size 22px
+            color grey
+
+@media (max-width: 1155px)
+    .forth-section .forth-mobile
+        margin-right 50px
+
+@media only screen and (max-width: 992px)
+    .forth-section 
+        flex-wrap wrap
+        background-size cover
+        .section-desc
+            width 100%
+            margin-top 5%
+            padding 25px 20px 0
+            text-align center
+            .section-title
+                font-size 22px
+            .section-subtitle
+                font-size 14px
+        .forth-mobile
+            width 70vw
+            height 142vw
+            margin 0
+
+.fifth-section
+    display flex
+    align-items center
+    justify-content center
+    background url(../images/fifth-bg.png) no-repeat
+    background-position 50%
+    background-size cover
+    .section-desc
+        width 100%
+        text-align center
+        .section-subtitle
+            font-family Yuanti SC
+            font-size 40px
+            font-weight 600
+            color #404040

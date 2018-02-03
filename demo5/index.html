@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>即刻 － 就想看点好东西</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="images/icon.jpg">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="first-section fit-height">
+            <div class="nav">
+                <div class="logo"></div>
+                <div>
+                    <a class="download" href="#">下载</a>
+                    <a class="joinus" href="#">加入即刻</a>
+                </div>
+            </div>
+            <div class="app-description">
+                <div class="slogan"></div>
+                <div class="video">
+                    <div class="video-wrap">
+                            <video src="https://cdn.ruguoapp.com/1080.mp4" class="video-stream"></video>
+                            <div class="video-poster"></div>
+                            <div class="video-controls">
+                                <div class="video-control-handler preplay">
+                                    <div class="icon-play"></div>
+                                    <span class="icon-remove"><i class="iconfont">&#xe637;</i></span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="qrcode">
+                <div class="content"></div>
+            </div>
+            <div class="first-tip"></div>
+        </div>
+
+        <div class="second-section fit-height">
+            <div class="section-desc">
+                <div class="section-title">我关心的，即刻都知道</div>
+                <div class="section-subtitle">每时每刻，三十万细分的兴趣主题为你追踪你想知道的任何信息。</div>
+                <div class="section-subtitle">一有更新，「即刻」告诉你。</div>
+            </div>
+            <div class="mobile-view">
+                <div class="mobile-topic-child-A"></div>
+                <div class="mobile-topic-child-B"></div>
+            </div>
+        </div>
+
+        <div class="third-section fit-height">
+            <div class="section-desc">
+                <div class="section-title">告别标题党，拒绝垃圾推送</div>
+                <div class="section-subtitle">即刻以算法与人工智慧精挑细选，让信息一目了然，</div>
+                <div class="section-subtitle">确保你收到的每一条消息，都值得被推送。</div>
+            </div>
+            <div class="mobile-notification"></div>
+            <div class="third-mobile"></div>
+            <div class="third-section-mask"></div>
+        </div>
+        <div class="forth-section fit-height">
+            <div class="section-desc">
+                <div class="section-title">与更多同好分享你的见闻与感受</div>
+                <div class="section-subtitle">每一个独到的声音，都值得被更多人倾听。</div>
+                <div class="section-subtitle">在即刻，你不仅可以创建主题，更新动态，</div>
+                <div class="section-subtitle">还可以在主题中发表观点或见闻，更深度地参与内容分享。</div>
+            </div>
+            <div class="forth-mobile"></div>
+        </div>
+        <div class="fifth-section fit-height">
+                <div class="section-desc">
+                    <div class="section-subtitle">Thank you for watching.</div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/page-slide.js"></script>
+<script>
+    $.pageSlide(5);
+
+    var $btn = $(".icon-play");
+    var $poster = $(".video-poster");
+    var $videoControlHandler = $(".video-control-handler");
+    var $x = $(".video-stream");
+    var $close = $(".icon-remove");
+
+    //点击播放事件
+    $btn.on("click", function(){
+        $poster.addClass("playing");
+        console.log($videoControlHandler[0]);
+        $videoControlHandler.removeClass("preplay");
+        $videoControlHandler.addClass("played");
+        $x[0].play();
+    });
+
+    //播放结束时回到初始状态
+    $x.on("ended", function(){
+        $poster.removeClass("playing");
+        $videoControlHandler.toggleClass("played");
+    })
+
+    //点击右上按钮停止播放
+    $close.on("click", function(){
+        $poster.removeClass("playing");
+        $videoControlHandler.toggleClass("played");
+        $x[0].load();
+    })
+</script>
+
+
